@@ -1,0 +1,20 @@
+[
+  {
+    "title":"Hands and Apples", 
+    "description": "Use your hands",
+    "location": "Clifton Center",
+    "duration": 3,
+    "maxparticipants": 12,
+    "what": "yoga type mat",
+    "status": "closed"
+  },  
+  {
+    "title":"Jaw Dropping",
+    "description": "Have your jaw drop like never before", 
+    "location": "Clifton Center",
+    "duration": 2,
+    "maxparticipants": 10,
+    "what": "yoga type mat",
+    "status": "closed"
+  }
+]

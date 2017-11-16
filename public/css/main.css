@@ -1,0 +1,288 @@
+/**********************************
+** GENERAL
+***********************************/
+
+body {
+    font-family: 'Open Sans', sans-serif, 'Roboto';
+    background: #e8e8e8;
+}
+
+
+/**********************************
+** MOBILE
+***********************************/
+* {
+    box-sizing: border-box; /* Not supported in Android 2.3 */
+}
+
+
+/***********************************
+ ** PAGE TITLE
+ ***********************************/
+header h1 {
+    text-align: center;
+    font-size: 4.0rem;
+    color: whitesmoke;
+}
+
+header {
+  padding-top: 40px;
+/*  background: #ffa949 url('../img/mtn-landscape.jpg') no-repeat center; */
+  background: #ffa949 url('../img/reflection-2339624_960_720.jpg') no-repeat center;
+  background-size: cover;
+}
+
+/* Remove underline */
+header a {
+    text-decoration: none; 
+    color: whitesmoke;
+}
+
+header a:selected {
+    color: powderblue;
+}
+
+header a:hover {
+    color: powderblue;
+}
+
+.header-hr {
+    width: 90%;
+}
+
+/***********************************
+ ** NAVIGATION
+ ***********************************/
+/* Center navigation in the window */
+nav {
+    text-align: center;
+    padding: 10px 0;
+    margin: 20px 0 0;
+}
+
+/* Get rid of the bullets */
+nav ul {
+    list-style: none;
+    margin: 0 10px;
+    padding: 0;
+}
+
+/* All in one line, leave enough space for clicking */
+nav li {
+    display: inline-block;
+    padding: 15px 10px;
+}
+
+/* Remove underline */
+nav a {
+    text-decoration: none; 
+    color: whitesmoke;
+}
+
+nav a.selected {
+    display: inline-block;
+    color: powderblue;
+}
+
+nav a:hover {
+    color: powderblue;
+}
+
+/* Hide the link that should open and close the nav on small screens */
+nav .icon {
+    display: none;
+}
+.dropdown-content {
+    display: none;
+}
+.dropdown-button {
+    display: none;
+}
+
+/***********************************
+ ** SECTION
+ ***********************************/
+.wrapper h2 {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.wrapper {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 5%;
+	  font-size: 1.1rem;
+    color: black;
+    text-align: justify;
+}
+
+.row {
+    display: block-inline;
+	  float: right;
+}
+.wrapper ul {
+    list-style: none;
+}
+
+/***********************************
+ ** QUOTES
+ ***********************************/
+
+blockquote {
+	  width: 100%;
+    display: block;
+    background: darkseagreen4;
+    padding: 15px 20px 15px 45px;
+    margin: 0 0 20px;
+    position: relative;
+    
+    /*Font*/
+    /* font-family: Georgia, serif; */
+    font-size: 16px;
+    line-height: 1.2;
+    color: grey10;
+    text-align: justify;
+    
+    /*Borders - (Optional)
+    border-left: 15px solid #c76c0c;
+    border-right: 2px solid #c76c0c;*/
+    
+    /*Box Shadow - (Optional)*/
+    -moz-box-shadow: 2px 2px 15px #ccc;
+    -webkit-box-shadow: 2px 2px 15px #ccc;
+    box-shadow: 2px 2px 15px #ccc;
+}
+
+/***********************************
+ ** CONTACT INFO
+ ***********************************/
+.contact {
+    display: inline-block;
+}
+.photo-id {
+    border-radius: 50%;
+    vertical-align: middle;
+}
+.phone {
+    display: inline-block;
+    text-decoration: none; 
+    color: black;
+    vertical-align: middle;
+}
+
+.email {
+    display: inline-block;
+    text-decoration: none; 
+    color: black;
+    vertical-align: middle;
+}
+
+/***********************************
+ ** NEWSLETTER
+ ***********************************/
+#newsletter-form {
+    text-align:center;
+    margin: 0 0 25px 0;
+}
+#newsletter-input {
+    width: 60%;
+    text-align:center;
+}
+#newsletter-ajax {
+	  display: none;
+}
+
+/***********************************
+ ** CLASSES
+ ***********************************/
+.atm-classes {  
+    width: 90%;
+    margin: 0 auto 40px;
+    display: block;
+}
+
+/***********************************
+ ** RESOURCES
+ ***********************************/
+#video, #audio {
+    width: 80%;
+    margin: 15px auto;
+    display: block;
+}
+    
+/***********************************
+ ** FOOTER
+ ***********************************/
+.main-footer {
+    color: black;
+    text-align: center;   
+    padding: 1rem auto 1rem;
+    margin: 0px;
+    font-size: 0.8rem;
+}
+
+.social-icon {
+    padding: 0;
+    width: 1.1rem;
+    height: auto;
+    margin: 0px;
+    color: black;
+    text-decoration: none; 
+    vertical-align: middle;
+}
+
+
+#back-footer {
+    margin: 5px 5px;	
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+/* Remove underline */
+footer a {
+    text-decoration: none; 
+    color: black;
+}
+
+footer img {
+    max-width: 940px;
+    clear: both; /* clear property targets float behavior, so that the parent element does not collapse */
+}
+
+/***********************************
+ ** MEDIA QUERIES
+ ***********************************/
+@media (min-width: 769px)
+{
+    /* Sticky footer */
+    .wrap {
+        /* min-height: 100vh;  //100vh: 100% viewport height */
+        min-height: calc(100vh - 89px); /* Calculate the size of 100% minus the height of the footer (to be measured using chrome here for the example 89 */
+    }
+}
+
+/***********************************
+ ** DEBUG
+ ***********************************/
+p {
+/* debug    border: solid 1px red; */
+}
+
+/***********************************
+ ** IMAGES
+ ***********************************/
+
+section img {
+    padding: 10px;
+/* debug 
+    border: solid 1px #d9e4ea; */
+}
+
+
+/***********************************
+ ** FIXES FLOAT BEHAVIOR: just add this class to the element containing the float(s)
+ ***********************************/
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
