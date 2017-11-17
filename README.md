@@ -80,15 +80,18 @@ Workshop:
  
 
 ## 3. Project file structure
-. +-- index.js
-. +-- public
-.     +-- index.html
-.     +-- css
-.     +-- img
-.     +-- js
-. +-- src
-.     +-- server.js
-.     +-- config/index.js
-.     +-- models/person.model.js
-.     +-- models/workshop.model.js
-.     +-- routes/index.js
+‘’’
+  +-- index.js
+  +-- public
+      +-- index.html
+      +-- css
+      +-- img
+      +-- js
+  +-- src
+      +-- server.js
+      +-- config/index.js
+      +-- models/person.model.js
+      +-- models/workshop.model.js
+      +-- routes/index.js
+
+‘’’
