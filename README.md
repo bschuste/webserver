@@ -80,7 +80,7 @@ Workshop:
  
 
 ## 3. Project file structure
-‘’’
+```
   +-- index.js
   +-- public
       +-- index.html
@@ -94,4 +94,4 @@ Workshop:
       +-- models/workshop.model.js
       +-- routes/index.js
 
-‘’’
+```
