@@ -1,7 +1,7 @@
 [
   {
-    "title":"Hands and Apples", 
-    "description": "Use your hands",
+    "title":"Hands", 
+    "description": "Use your hands and hold apples",
     "location": "Clifton Center",
     "duration": 3,
     "maxparticipants": 12,
@@ -9,7 +9,7 @@
     "status": "closed"
   },  
   {
-    "title":"Jaw Dropping",
+    "title":"Jaw",
     "description": "Have your jaw drop like never before", 
     "location": "Clifton Center",
     "duration": 2,

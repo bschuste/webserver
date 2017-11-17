@@ -21,7 +21,7 @@ router.post('/workshop', function(req, res, next) {
         what: req.body.what,
         status: req.body.status
     };
-    console.log("title", title, "date", date);
+    console.log("title", workshopData.title, "date", workshopData.date);
     
     Workshop.create(workshopData, function(err, newWorkshop) {
       if (err) {
@@ -47,7 +47,8 @@ router.get('/workshop' , function(req, res, next) {
 router.put('/workshop/:workshopId', function(req, res, next) {
     const Workshop = mongoose.model('Workshop');
     const workshopId = req.params.workshopId;
-  
+    console.log("put /api/workshop " + workshopId);
+    
     Workshop.findById(workshopId, function(err, workshop) {
         if (err) {
             console.log(err);
@@ -58,39 +59,36 @@ router.put('/workshop/:workshopId', function(req, res, next) {
         }
   
         workshop.title = req.body.title;
+        workshop.description = req.body.description;
         workshop.date = req.body.date;
         workshop.location = req.body.location;
         workshop.duration = req.body.duration;
         workshop.maxparticipants = req.body.maxparticipants;
         workshop.what = req.body.what;
-        if (workshop.date < date.now) {
-            workshop.status = "closed";
-        }
+        // if (workshop.date < date.now) {
+        //     workshop.status = "closed";
+        // }
         workshop.save(function(err, savedWorkshop) {
             res.json(savedWorkshop);
         })
     })
 });
   
+
 router.delete('/workshop/:workshopId', function(req, res, next) {
     const Workshop = mongoose.model('Workshop');
     const workshopId = req.params.workshopId;
-  
-    Workshop.findById(workshopId, function(err, workshop) {
+    console.log("delete /api/workshop " + workshopId);
+    Workshop.findByIdAndRemove(workshopId, function(err, workshop) {
         if (err) {
             console.log(err);
-            return res.status(500).json(err);
+            return res.status(500).json({ err: err.message });
         }
         if (!workshop) {
             return res.status(404).json({message: "Workshop not found"});
         }
-  
-        //workshop.deleted = true;
-  
-        workshop.save(function(err, deletedWorkshop) {
-            res.json(deletedWorkshop);
-        })
-    })
+        res.json({ message: 'Workshop Deleted' });
+    });
 });
-  
+
 module.exports = router;

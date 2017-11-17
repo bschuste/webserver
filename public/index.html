@@ -42,13 +42,12 @@
       <hr class="header-hr">
       <div class="container">
       <div id="newlist-container"></div>
-<!--
-      <img src="img/neck_and_shoulders.jpg" style="width:50%" onclick="toggleEdition()">
-      <img src="img/hands_and_apple.jpg" style="width:50%" onclick="toggleEdition()">
-      <img src="img/jaw.jpg" style="width:50%" onclick="toggleEdition()">
--->
+
+      <!-- Fill-in form used when creating or modifying a workshop -->
+      <!-- Next step: this form should only be accessible to the teacher -->
+      <button id="add-workshop-button" class="btn btn-primary" onclick="enableEntryForm()">Add Workshop</button>
       <div id="form-container" class="panel hidden">
-        <form id="add-file-form">
+        <form id="add-workshop-form">
           <input type="hidden" id="workshop-id" value="" />
 
           <div class="form-group">
@@ -56,11 +55,27 @@
             <input type="text" class="form-control" id="workshop-title" placeholder="Title">
           </div>
           <div class="form-group">
+            <label for="workshop-date">Date</label>
+            <input type="text" class="form-control" id="workshop-date" placeholder="Dec, 24 2017">
+          </div>
+          <div class="form-group">
+            <label for="workshop-duration">Duration</label>
+            <input type="text" class="form-control" id="workshop-duration" placeholder="Workshop duration in hours">
+          </div>
+          <div class="form-group">
             <label for="workshop-description">Description</label>
             <input type="text" class="form-control" id="workshop-description" placeholder="Description">
           </div>
-          <button type="button" onclick="submitWorkshopDescription()" class="btn btn-success">Submit</button>
-          <button type="button" onclick="cancelEdition()" class="btn btn-link">cancel</button>
+          <div class="form-group">
+            <label for="workshop-maxparticipants">Maximum Number of Participants</label>
+            <input type="text" class="form-control" id="workshop-maxparticipants" placeholder="10">
+          </div>
+          <div class="form-group">
+            <label for="workshop-what">What to bring</label>
+            <input type="text" class="form-control" id="workshop-what" placeholder="What">
+          </div>
+          <button type="button" onclick="submitWorkshopData()" class="btn btn-success">Submit</button>
+          <button type="button" onclick="cancelEdition()" class="btn btn-link">Cancel</button>
         </form>
       </div>
 
@@ -104,14 +119,17 @@
       <ul class="list-group">
         {{#each workshops}}
         <li class="list-group-item">
-          <span class="pull-left">
-<!--            <img src="img/neck_and_shoulders.jpg" style="width:50%; display:float;" onclick="toggleParticipant()"> -->
-            <img src={{image}} style="width:50%; display:block-inline;" onclick="toggleEdition()">
+          <span>
+            <img src={{image}} style="width:50%;" onclick="toggleEdition('{{_id}}')">
           </span>
-          <span class="pull-right">
-            <strong>{{title}}</strong> - {{description}} - {{date}} 
-            <!-- <button type="button" class="btn btn-xs btn-default" onclick="editFileClick('{{_id}}')">Edit</button>
-            <button type="button" class="btn btn-xs btn-danger" onclick="deleteFileClick('{{_id}}')">Del</button> -->
+          <span class="pull-right" style="font-size:0.8rem">
+            <strong>{{title}}</strong>
+            <p>{{description}}</p>
+            <p>When {{date}}</p>
+            <p>How long {{duration}} hours</p> 
+            <p>Participants {{maxparticipants}}</p> 
+            <p>What to bring {{what}}</p>
+            <button type="button" class="list-button-del btn btn-xs btn-danger hidden" onclick="deleteWorkshopClick('{{_id}}')">Del</button>
           </span>
         </li>
         {{/each}}
