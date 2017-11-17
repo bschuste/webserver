@@ -65,15 +65,18 @@ router.put('/workshop/:workshopId', function(req, res, next) {
         workshop.duration = req.body.duration;
         workshop.maxparticipants = req.body.maxparticipants;
         workshop.what = req.body.what;
-        // if (workshop.date < date.now) {
-        //     workshop.status = "closed";
-        // }
+
+        var today = new Date();
+        if (workshop.date < today) {
+            console.log("Old workshop: forcing status closed");
+            workshop.status = "closed";
+        }
         workshop.save(function(err, savedWorkshop) {
             res.json(savedWorkshop);
         })
     })
 });
-  
+
 
 router.delete('/workshop/:workshopId', function(req, res, next) {
     const Workshop = mongoose.model('Workshop');

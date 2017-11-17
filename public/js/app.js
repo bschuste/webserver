@@ -40,10 +40,7 @@ function refreshWorkshopList() {
         if (workshops[key].status === "closed") {
           oldWorkshops[i] = workshops[key];
         } else {
-          newWorkshops[i] = workshops[key];
-          // newWorkshops[i].title = "empty";
-          // newWorkshops[i].description = "empty";          
-          // newWorkshops[i].date = "XXX";          
+          newWorkshops[i] = workshops[key];     
         }
         i++;
         if (workshops[key].title == "Babies") {
@@ -91,6 +88,8 @@ function toggleEdition(_id) {
 
 function cancelEdition() {
   console.log("cancelEdition: workshop registration form");
+  //clear form
+  $('#workshop-id').val('undefined');
   $('#form-container').addClass('hidden');
 }
 
@@ -114,7 +113,7 @@ function submitWorkshopData() {
   if (!workshopData.status) {
     workshopData.status = "open";
   }
-  if (workshopData._id) {
+  if ((workshopData._id) && (workshopData._id !== 'undefined')){
     $.ajax({
       type: 'PUT',
       url: '/api/workshop/' + workshopData._id,
