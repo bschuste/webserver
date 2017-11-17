@@ -36,8 +36,8 @@ router.post('/workshop', function(req, res, next) {
 // Read about a workshop. Any body is allowed to do so.
 router.get('/workshop' , function(req, res, next) {
     console.log("get /api/workshop");
-    mongoose.model('Workshop').find({}, function(err, workshops) {        
-        console.log("title", workshops.title, "date", workshops.date);
+    mongoose.model('Workshop').find({}, function(err, workshops) {
+//        console.log("title", workshops.title, "date", workshops.date);
         res.json(workshops);
     });
 });

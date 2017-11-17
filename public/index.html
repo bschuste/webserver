@@ -12,6 +12,7 @@
         @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }           @viewport { user-zoom: fixed ; min-zoom: 100% ; }
     </style>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/responsive.css">
@@ -39,12 +40,34 @@
     <section class="wrapper">
       <h2>Workshop Coming Soon</h2> 
       <hr class="header-hr">
+      <div class="container">
       <div id="newlist-container"></div>
+<!--
+      <img src="img/neck_and_shoulders.jpg" style="width:50%" onclick="toggleEdition()">
+      <img src="img/hands_and_apple.jpg" style="width:50%" onclick="toggleEdition()">
+      <img src="img/jaw.jpg" style="width:50%" onclick="toggleEdition()">
+-->
+      <div id="form-container" class="panel hidden">
+        <form id="add-file-form">
+          <input type="hidden" id="workshop-id" value="" />
 
-      <img src="img/neck_and_shoulders.jpg" style="width:50%" onclick="toggleParticipant()">
-      <img src="img/Hands-and-Apple.jpg" style="width:50%" onclick="toggleParticipant()">
-      <img src="img/jaw.jpg" style="width:50%" onclick="toggleParticipant()">
-      
+          <div class="form-group">
+            <label for="workshop-title">Title</label>
+            <input type="text" class="form-control" id="workshop-title" placeholder="Title">
+          </div>
+          <div class="form-group">
+            <label for="workshop-description">Description</label>
+            <input type="text" class="form-control" id="workshop-description" placeholder="Description">
+          </div>
+          <button type="button" onclick="submitWorkshopDescription()" class="btn btn-success">Submit</button>
+          <button type="button" onclick="cancelEdition()" class="btn btn-link">cancel</button>
+        </form>
+      </div>
+
+    </div>
+
+
+
       <div class="location">
         <h2>Workshops at our Location</h2>
         <p>Clifton Center, Third Floor, 2117 Payne St, Louisville, KY 40206,</p>
@@ -57,7 +80,7 @@
       <!-- this is the html placeholder for where the list of workshops is inserted
         -->
       <div id="oldlist-container"></div>
-      <img src="img/babies.jpg" style="width:50%;">  
+
     </section>
     
     <hr class="header-hr">
@@ -81,8 +104,12 @@
       <ul class="list-group">
         {{#each workshops}}
         <li class="list-group-item">
-          <strong>{{title}}</strong> - {{description}} - {{date}} 
+          <span class="pull-left">
+<!--            <img src="img/neck_and_shoulders.jpg" style="width:50%; display:float;" onclick="toggleParticipant()"> -->
+            <img src={{image}} style="width:50%; display:block-inline;" onclick="toggleEdition()">
+          </span>
           <span class="pull-right">
+            <strong>{{title}}</strong> - {{description}} - {{date}} 
             <!-- <button type="button" class="btn btn-xs btn-default" onclick="editFileClick('{{_id}}')">Edit</button>
             <button type="button" class="btn btn-xs btn-danger" onclick="deleteFileClick('{{_id}}')">Del</button> -->
           </span>

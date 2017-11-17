@@ -77,9 +77,15 @@ Workshop:
      +-- models/workshop.model.js
      +-- routes/index.js
 
-## 3. Helpers
+## 3. Helper binaries
 
-The server is using handlebar templates:
+In html, see available javascript libraries at
+https://cdnjs.com/libraries
+          <!-- {{!-- dateFormat date "dddd, MMMM Do YYYY, h:mm:ss a --"}} -->
+
+
+
+The server is using handlebar templates in the html pages
 http://handlebarsjs.com/
 
 mongodb noSQL database
