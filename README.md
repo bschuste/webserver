@@ -6,6 +6,7 @@
 1. Display a list of workshops
 2. Prospect to register to a workshop
 3. Project file structure
+4. Testing
 
 ## 1. Display a list of workshops
 
@@ -95,3 +96,8 @@ Workshop:
       +-- routes/index.js
 
 ```
+
+## 4. Testing
+
+Start a browser at http://localhost:8000
+
