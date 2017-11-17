@@ -116,19 +116,27 @@
 
     <!-- Workshop List Template javascript -->
     <script id="list-template" type="text/x-handlebars-template">
+      <!--
+      {{#each workshops}}
+        <div class="row">
+          <div class="col-sm-4">.col-sm-4</div>
+          <div class="col-sm-8">.col-sm-8</div>
+        </div>
+      {{/each}}
+      -->
       <ul class="list-group">
         {{#each workshops}}
         <li class="list-group-item">
-          <span>
+          <span> <!-- </span>class="pull-left"> -->
             <img src={{image}} style="width:50%;" onclick="toggleEdition('{{_id}}')">
           </span>
-          <span class="pull-right" style="font-size:0.8rem">
+          <span class="pull-right" style="font-size:1rem; width:50%; margin-top:1px;">
             <strong>{{title}}</strong>
             <p>{{description}}</p>
-            <p>When {{date}}</p>
-            <p>How long {{duration}} hours</p> 
-            <p>Participants {{maxparticipants}}</p> 
-            <p>What to bring {{what}}</p>
+            <p>When: {{date}}</p>
+            <p>How long: {{duration}} hours</p> 
+            <p>Participants: {{maxparticipants}}</p> 
+            <p>What to bring: {{what}}</p>
             <button type="button" class="list-button-del btn btn-xs btn-danger hidden" onclick="deleteWorkshopClick('{{_id}}')">Del</button>
           </span>
         </li>
