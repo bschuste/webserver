@@ -39,8 +39,10 @@ function refreshWorkshopList() {
         console.log(workshops[key]);   // the value of the current key.
         if (workshops[key].status === "closed") {
           oldWorkshops[i] = workshops[key];
+          oldWorkshops[i].date = moment(workshops[key].date).format('lll');
         } else {
-          newWorkshops[i] = workshops[key];     
+          newWorkshops[i] = workshops[key];
+          newWorkshops[i].date = moment(workshops[key].date).format('lll');
         }
         i++;
         if (workshops[key].title == "Babies") {
